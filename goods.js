@@ -1,6 +1,6 @@
 console.log('GOODS.JS')
 document.addEventListener('wpcf7mailsent', function (event) {
-  ga( 'send', 'event', 'Contact Form', 'submit' );
+  ga('send', 'event', 'Contact Form', 'submit');
   console.log('FORM_SUBMIT', event)
   var FACT_INPUTS = event.detail.inputs;
   var answer_index = [
@@ -118,10 +118,12 @@ document.addEventListener('wpcf7mailsent', function (event) {
     //   ]
     // }
   ]
+
   var goods = [
     {
       id: "18980",
       name: "Флюид \"Ежедневный уход и очищение\"",
+      cat: "wash",
       compliance: [
         [1, 1, 1], // pory
         [1, 1, 1, 0], // sebum
@@ -129,13 +131,14 @@ document.addEventListener('wpcf7mailsent', function (event) {
         [1, 1], // pigment
         [1, 1, 1, 1], // komedon
         [0, 1, 1], // barier
-        [1, 1], // aroundeyes
-        [1, 0, 0, 0, 1, 0, 1, 0, 1, 1, 1, 1, 1, 1], // firstwork
+        [0, 0], // aroundeyes
+        [1, 0, 0, 0, 1, 0, 1, 0, 1, 1, 2, 1, 1, 0], // firstwork
         [1, , 1, 0, 1, 1, 1, 1, 1, 1, 1] // allerg
       ]
     },
     {
       id: "19097",
+      cat: "wash",
       name: "Флюид \"Ежедневный уход и очищение нежное\"",
       compliance: [
         [1, 1, 1], // pory
@@ -144,13 +147,14 @@ document.addEventListener('wpcf7mailsent', function (event) {
         [1, 1], // pigment
         [1, 1, 1, 1], // komedon
         [1, 1, 0], // barier
-        [1, 1], // aroundeyes
-        [1, 0, 0, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1], // firstwork
+        [0, 0], // aroundeyes
+        [1, 0, 0, 1, 1, 1, 2, 1, 1, 0, 1, 1, 1, 0], // firstwork
         [1, , 1, 0, 1, 1, 1, 1, 1, 1, 1] // allerg
       ]
     },
     {
       id: "19099",
+      cat: "wash",
       name: "Флюид \"Апельсин\"",
       compliance: [
         [1, 1, 1], // pory
@@ -159,8 +163,8 @@ document.addEventListener('wpcf7mailsent', function (event) {
         [1, 1], // pigment
         [1, 1, 1, 1], // komedon
         [0, 1, 1], // barier
-        [1, 1], // aroundeyes
-        [1, 0, 0, 0, 1, 0, 1, 0, 1, 1, 1, 1, 1, 1], // firstwork
+        [0, 0], // aroundeyes
+        [1, 0, 0, 0, 1, 0, 1, 0, 1, 1, 2, 1, 1, 1], // firstwork
         [1, , 0, 1, 1, 1, 0, 1, 1, 1, 1] // allerg
       ]
     },
@@ -168,6 +172,7 @@ document.addEventListener('wpcf7mailsent', function (event) {
     {
       id: "19102",
       name: "Флюид \"Апельсин нежный\"",
+      cat: "wash",
       compliance: [
         [1, 1, 1], // pory
         [0, 1, 1, 1],// sebum
@@ -175,7 +180,7 @@ document.addEventListener('wpcf7mailsent', function (event) {
         [1, 1], // pigment
         [1, 1, 1, 1], // komedon
         [1, 1, 0], // barier
-        [1, 1], // aroundeyes
+        [0, 0], // aroundeyes
         [1, 0, 0, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1], // firstwork
         [1, , 0, 1, 1, 1, 0, 1, 1, 1, 1] // allerg
       ]
@@ -183,6 +188,7 @@ document.addEventListener('wpcf7mailsent', function (event) {
 
     {
       id: "18982",
+      cat: "daily-care",
       name: "Флюид \"Дневной\"",
       compliance: [
         [1, 1, 1], // pory
@@ -190,8 +196,8 @@ document.addEventListener('wpcf7mailsent', function (event) {
         [1, 0, 1], // sklon,
         [1, 1], // pigment
         [1, 1, 1, 1], // komedon
-        [1, 1, 1], // barier
-        [1, 1], // aroundeyes
+        [0, 0, 0], // barier
+        [0, 0], // aroundeyes
         [1, 0, 1, 1, 1, 0, 1, 0, 1, 1, 1, 1, 1, 1], // firstwork
         [1, , 1, 1, 0, 0, 0, 1, 1, 1, 1] // allerg
       ]
@@ -200,15 +206,16 @@ document.addEventListener('wpcf7mailsent', function (event) {
     {
       id: "19089",
       name: "Флюид \"Ночной с СОД\"",
+      cat: "serum",
       compliance: [
         [1, 1, 1], // pory
         [1, 1, 1, 1],// sebum
         [1, 1, 1], // sklon,
         [1, 0], // pigment
         [1, 1, 1, 0], // komedon
-        [1, 1, 1], // barier
-        [1, 1], // aroundeyes
-        [1, 0, 0, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1], // firstwork
+        [0, 0, 0], // barier
+        [0, 0], // aroundeyes
+        [1, 0, 0, 1, 1, 0, 1, 1, 1, 1, 1, 2, 2, 1], // firstwork
         [1, , 1, 1, 0, 0, 1, 1, 1, 1, 1] // allerg
       ]
     },
@@ -216,15 +223,16 @@ document.addEventListener('wpcf7mailsent', function (event) {
     {
       id: "19026",
       name: "Флюид \"После умывания с пребиотиками и пробиотиками\"",
+      cat: "serum",
       compliance: [
         [1, 1, 1], // pory
         [1, 1, 1, 0],// sebum
         [1, 1, 1], // sklon,
         [0, 1], // pigment
         [1, 1, 1, 0], // komedon
-        [1, 1, 1], // barier
-        [1, 0], // aroundeyes
-        [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1], // firstwork TODO
+        [0, 0, 0], // barier
+        [0, 0], // aroundeyes
+        [1, 0, 0, 0, 1, 0, 1, 0, 1, 2, 1, 0, 0, 0], // firstwork TODO
         [1, , 1, 1, 1, 1, 1, 1, 1, 1, 1] // allerg TODO
       ]
     },
@@ -232,21 +240,23 @@ document.addEventListener('wpcf7mailsent', function (event) {
     {
       id: "18987",
       name: "Флюид \"с СОД\"",
+      cat: "serum",
       compliance: [
         [1, 1, 1], // pory
         [1, 1, 1, 1],// sebum
         [1, 1, 1], // sklon,
         [1, 0], // pigment
         [1, 1, 1, 0], // komedon
-        [1, 1, 1], // barier
-        [1, 1], // aroundeyes
-        [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1], // firstwork TODO
+        [0, 0, 0], // barier
+        [0, 0], // aroundeyes
+        [1, 0, 0, 1, 1, 1, 2, 1, 1, 2, 1, 1, 1, 1],
         [1, , 1, 1, 1, 1, 1, 1, 1, 1, 1] // allerg TODO
       ]
     },
 
     {
       id: "26737",
+      cat: "serum",
       name: "Флюид \"Регенерация\"",
       compliance: [
         [1, 1, 1], // pory
@@ -254,9 +264,9 @@ document.addEventListener('wpcf7mailsent', function (event) {
         [1, 1, 1], // sklon,
         [1, 0], // pigment
         [0, 0, 1, 1], // komedon
-        [1, 1, 1], // barier
-        [1, 1], // aroundeyes
-        [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1], // firstwork TODO
+        [0, 0, 0], // barier
+        [0, 0], // aroundeyes
+        [1, 0, 0, 1, 1, 1, 1, 2, 1, 2, 1, 2, 2, 1],
         [1, , 1, 1, 1, 1, 1, 1, 1, 1, 1] // allerg TODO
       ]
     },
@@ -264,15 +274,16 @@ document.addEventListener('wpcf7mailsent', function (event) {
     {
       id: "28934",
       name: "Флюид \"Со стабильным витамином С\"",
+      cat: "serum",
       compliance: [
         [1, 1, 1], // pory
         [1, 1, 1, 1],// sebum
         [1, 1, 1], // sklon,
         [1, 0], // pigment
         [0, 0, 1, 1], // komedon
-        [1, 1, 1], // barier
-        [1, 1], // aroundeyes
-        [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1], // firstwork TODO
+        [0, 0, 0], // barier
+        [0, 0], // aroundeyes
+        [1, 0, 0, 1, 1, 1, 3, 1, 1, 1, 0, 2, 2, 1],
         [1, , 1, 1, 1, 1, 1, 1, 1, 1, 1] // allerg TODO
       ]
     },
@@ -280,15 +291,16 @@ document.addEventListener('wpcf7mailsent', function (event) {
     {
       id: "19022",
       name: "Флюид \"Ночной с шиповником\"",
+      cat: "serum",
       compliance: [
         [1, 1, 1], // pory
         [1, 1, 1, 0],// sebum
         [1, 0, 1], // sklon,
         [1, 0], // pigment
         [0, 0, 1, 1], // komedon
-        [1, 1, 1], // barier
-        [1, 1], // aroundeyes
-        [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1], // firstwork TODO
+        [0, 0, 0], // barier
+        [0, 0], // aroundeyes
+        [1, 0, 0, 1, 1, 1, 1, 0, 1, 2, 1, 1, 1, 0],
         [1, , 1, 1, 1, 1, 1, 1, 1, 1, 1] // allerg TODO
       ]
     },
@@ -296,15 +308,16 @@ document.addEventListener('wpcf7mailsent', function (event) {
     {
       id: "19091",
       name: "Флюид \"Ночной с пребиотиками и пробиотиками\"",
+      cat: "serum",
       compliance: [
         [1, 1, 1], // pory
         [1, 1, 1, 0],// sebum
         [1, 0, 1], // sklon,
         [0, 1], // pigment
         [1, 1, 1, 0], // komedon
-        [1, 1, 1], // barier
+        [0, 0, 0], // barier
         [0, 0], // aroundeyes
-        [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1], // firstwork TODO
+        [1, 0, 0, 0, 1, 0, 1, 0, 1, 2, 1, 0, 0, 0],
         [1, , 1, 1, 1, 1, 1, 1, 1, 1, 1] // allerg TODO
       ]
     },
@@ -312,15 +325,16 @@ document.addEventListener('wpcf7mailsent', function (event) {
     {
       id: "19110",
       name: "Флюид \"Дневной питательный\"",
+      cat: "daily-care",
       compliance: [
         [1, 1, 1], // pory
         [0, 1, 1, 0],// sebum
         [0, 1, 1], // sklon,
         [1, 1], // pigment
         [1, 1, 1, 1], // komedon
-        [1, 1, 1], // barier
-        [1, 1], // aroundeyes
-        [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1], // firstwork TODO
+        [0, 0, 0], // barier
+        [0, 0], // aroundeyes
+        [1, 0, 1, 1, 1, 0, 1, 1, 1, 0, 1, 1, 1, 1],
         [1, , 1, 1, 1, 1, 1, 1, 1, 1, 1] // allerg TODO
       ]
     },
@@ -328,15 +342,16 @@ document.addEventListener('wpcf7mailsent', function (event) {
     {
       id: "19114",
       name: "Флюид \"Дневной экстрапитательный\" (прежнее название \"Дневной для нормальной и сухой кожи\")",
+      cat: "daily-care",
       compliance: [
         [1, 1, 1], // pory
         [0, 0, 1, 1],// sebum
         [0, 1, 0], // sklon,
         [1, 1], // pigment
         [0, 0, 0, 1], // komedon
-        [1, 1, 0], // barier
-        [0, 1], // aroundeyes
-        [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1], // firstwork TODO
+        [0, 0, 0], // barier
+        [0, 0], // aroundeyes
+        [1, 0, 1, 1, 1, 0, 1, 1, 1, 0, 0, 1, 1, 1],
         [1, , 1, 1, 1, 1, 1, 1, 1, 1, 1] // allerg TODO
       ]
     },
@@ -344,15 +359,16 @@ document.addEventListener('wpcf7mailsent', function (event) {
     {
       id: "18990",
       name: "Флюид \"Ночной деликатный\"",
+      cat: "nightly-care",
       compliance: [
         [1, 1, 1], // pory
         [0, 1, 1, 1],// sebum
         [0, 1, 1], // sklon,
         [0, 1], // pigment
         [0, 0, 1, 1], // komedon
-        [1, 1, 1], // barier
-        [1, 1], // aroundeyes
-        [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1], // firstwork TODO
+        [0, 0, 0], // barier
+        [0, 0], // aroundeyes
+        [1, 0, 0, 1, 1, 2, 2, 2, 1, 0, 0, 0, 0, 1],
         [1, , 1, 1, 1, 1, 1, 1, 1, 1, 1] // allerg TODO
       ]
     },
@@ -360,15 +376,16 @@ document.addEventListener('wpcf7mailsent', function (event) {
     {
       id: "19078",
       name: "Флюид \"Ночной с экстрактом пальмы сабаль\"",
+      cat: "nightly-care",
       compliance: [
         [1, 1, 1], // pory
         [1, 1, 1, 0],// sebum
         [1, 0, 1], // sklon,
         [1, 0], // pigment
         [1, 1, 1, 0], // komedon
-        [1, 1, 1], // barier
-        [1, 1], // aroundeyes
-        [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1], // firstwork TODO
+        [0, 0, 0], // barier
+        [0, 0], // aroundeyes
+        [1, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 1],
         [1, , 1, 1, 1, 1, 1, 1, 1, 1, 1] // allerg TODO
       ]
     },
@@ -376,15 +393,16 @@ document.addEventListener('wpcf7mailsent', function (event) {
     {
       id: "19082",
       name: "Флюид \"Ночной восстанавливающий\"",
+      cat: "nightly-care",
       compliance: [
         [1, 1, 1], // pory
         [1, 1, 1, 0],// sebum
         [1, 1, 1], // sklon,
         [1, 0], // pigment
         [0, 0, 1, 1], // komedon
-        [1, 1, 1], // barier
-        [1, 1], // aroundeyes
-        [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1], // firstwork TODO
+        [0, 0, 0], // barier
+        [0, 0], // aroundeyes
+        [1, 0, 0, 1, 1, 1, 1, 1, 1, 0, 0, 1, 1, 2],
         [1, , 1, 1, 1, 1, 1, 1, 1, 1, 1] // allerg TODO
       ]
     },
@@ -392,15 +410,16 @@ document.addEventListener('wpcf7mailsent', function (event) {
     {
       id: "19085",
       name: "Флюид \"Ночной Ровный тон\"",
+      cat: "nightly-care",
       compliance: [
         [1, 1, 1], // pory
         [0, 1, 1, 1],// sebum
         [0, 1, 1], // sklon,
         [1, 0], // pigment
         [0, 0, 0, 1], // komedon
-        [1, 1, 1], // barier
-        [1, 1], // aroundeyes
-        [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1], // firstwork TODO
+        [0, 0, 0], // barier
+        [0, 0], // aroundeyes
+        [1, 0, 0, 1, 1, 1, 1, 1, 1, 0, 0, 2, 2, 1], // firstwork TODO
         [1, , 1, 1, 1, 1, 1, 1, 1, 1, 1] // allerg TODO
       ]
     },
@@ -408,15 +427,16 @@ document.addEventListener('wpcf7mailsent', function (event) {
     {
       id: "25823",
       name: "Флюид \"Балансирующий\"",
+      cat: "around-care",
       compliance: [
         [1, 1, 1], // pory
         [1, 1, 1, 0],// sebum
         [1, 0, 1], // sklon,
         [0, 1], // pigment
         [1, 1, 1, 1], // komedon
-        [1, 1, 1], // barier
+        [0, 0, 0], // barier
         [0, 0], // aroundeyes
-        [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1], // firstwork TODO
+        [1, 0, 0, 0, 1, 1, 1, 0, 1, 1, 1, 0, 0, 1], // firstwork TODO
         [1, , 1, 1, 1, 1, 1, 1, 1, 1, 1] // allerg TODO
       ]
     },
@@ -424,15 +444,16 @@ document.addEventListener('wpcf7mailsent', function (event) {
     {
       id: "30397",
       name: "Флюид \"Деликатный\"",
+      cat: "around-care",
       compliance: [
         [1, 1, 1], // pory
         [1, 1, 1, 0],// sebum
         [1, 0, 1], // sklon,
         [0, 1], // pigment
         [1, 1, 1, 1], // komedon
-        [1, 1, 1], // barier
+        [0, 0, 0], // barier
         [0, 0], // aroundeyes
-        [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1], // firstwork TODO
+        [1, 1, 0, 1, 1, 2, 1, 1, 1, 0, 0, 0, 0, 1], // firstwork TODO
         [1, , 1, 1, 1, 1, 1, 1, 1, 1, 1] // allerg TODO
       ]
     },
@@ -440,15 +461,16 @@ document.addEventListener('wpcf7mailsent', function (event) {
     {
       id: "19120",
       name: "Флюид \"Для дня и ночи\" (усиленный фитосфингозином)",
+      cat: "around-care",
       compliance: [
         [1, 1, 1], // pory
         [1, 1, 1, 1],// sebum
         [1, 1, 1], // sklon,
         [0, 1], // pigment
         [1, 1, 1, 1], // komedon
-        [1, 1, 1], // barier
+        [0, 0, 0], // barier
         [0, 0], // aroundeyes
-        [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1], // firstwork TODO
+        [1, 0, 0, 1, 1, 1, 1, 1, 1, 0, 1, 0, 0, 2], // firstwork TODO
         [1, , 1, 1, 1, 1, 1, 1, 1, 1, 1] // allerg TODO
       ]
     },
@@ -456,15 +478,16 @@ document.addEventListener('wpcf7mailsent', function (event) {
     {
       id: "19119",
       name: "Флюид \"Экстрапитательный\" (прежнее название \"День/ночь питательный\")",
+      cat: "around-care",
       compliance: [
         [1, 1, 1], // pory
         [1, 1, 1, 1],// sebum
         [1, 1, 1], // sklon,
         [0, 1], // pigment
         [1, 1, 1, 1], // komedon
-        [1, 1, 1], // barier
+        [0, 0, 0], // barier
         [0, 0], // aroundeyes
-        [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1], // firstwork TODO
+        [1, 0, 0, 1, 1, 2, 1, 1, 1, 0, 0, 0, 0, 0], // firstwork TODO
         [1, , 1, 1, 1, 1, 1, 1, 1, 1, 1] // allerg TODO
       ]
     },
@@ -472,15 +495,16 @@ document.addEventListener('wpcf7mailsent', function (event) {
     {
       id: "26757",
       name: "Флюид \"Вокруг глаз усиленный\"",
+      cat: "eyes",
       compliance: [
         [1, 1, 1], // pory
         [1, 1, 1, 1],// sebum
         [1, 1, 1], // sklon,
         [1, 0], // pigment
         [1, 1, 1, 1], // komedon
-        [1, 1, 1], // barier
+        [0, 0, 0], // barier
         [0, 1], // aroundeyes
-        [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1], // firstwork TODO
+        [1, 0, 0, 1, 1, 1, 1, 2, 1, 0, 1, 1, 1, 2],
         [1, , 1, 1, 1, 1, 1, 1, 1, 1, 1] // allerg TODO
       ]
     },
@@ -488,15 +512,16 @@ document.addEventListener('wpcf7mailsent', function (event) {
     {
       id: "26754",
       name: "Флюид \"Вокруг глаз деликатный\"",
+      cat: "eyes",
       compliance: [
         [1, 1, 1], // pory
         [1, 1, 1, 1],// sebum
         [1, 1, 1], // sklon,
         [0, 1], // pigment
         [1, 1, 1, 1], // komedon
-        [1, 1, 1], // barier
+        [0, 0, 0], // barier
         [1, 0], // aroundeyes
-        [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1], // firstwork TODO
+        [1, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1], // firstwork TODO
         [1, , 1, 1, 1, 1, 1, 1, 1, 1, 1] // allerg TODO
       ]
     },
@@ -504,15 +529,16 @@ document.addEventListener('wpcf7mailsent', function (event) {
     {
       id: "19025",
       name: "Флюид \"Физиологичный\"",
+      cat: "multi",
       compliance: [
         [1, 1, 1], // pory
         [1, 1, 1, 1],// sebum
         [1, 1, 1], // sklon,
         [0, 1], // pigment
         [1, 1, 1, 1], // komedon
-        [1, 1, 1], // barier
-        [1, 1], // aroundeyes
-        [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1], // firstwork TODO
+        [0, 0, 0], // barier
+        [0, 0], // aroundeyes
+        [1, 0, 0, 1, 1, 2, 2, 1, 1, 0, 1, 0, 0, 1], // firstwork TODO
         [1, , 1, 1, 1, 1, 1, 1, 1, 1, 1] // allerg TODO
       ]
     },
@@ -520,22 +546,24 @@ document.addEventListener('wpcf7mailsent', function (event) {
     {
       id: "19023",
       name: "Флюид \"Очищение и уход\"",
+      cat: "multi",
       compliance: [
         [1, 1, 1], // pory
         [1, 1, 1, 1],// sebum
         [1, 1, 1], // sklon,
         [1, 0], // pigment
         [1, 1, 1, 1], // komedon
-        [1, 1, 1], // barier
-        [0, 1], // aroundeyes
-        [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1], // firstwork TODO
-        [1, , 1, 1, 1, 1, 1, 1, 1, 1, 1] // allerg TODO
+        [0, 0, 0], // barier
+        [0, 0], // aroundeyes
+        [1, 0, 0, 1, 1, 0, 1, 1, 2, 1, 1, 1, 1, 1], // firstwork TODO
+        [1, , 1, 1, 1, 1, 1, 1, 0, 1, 1] // allerg TODO
       ]
     },
 
     {
       id: "25512",
       name: "Флюид \"Для рук и тела\"",
+      cat: "hands",
       compliance: [
         [0, 0, 0], // pory
         [0, 0, 0, 0],// sebum
@@ -543,13 +571,11 @@ document.addEventListener('wpcf7mailsent', function (event) {
         [0, 0], // pigment
         [0, 0, 0, 0], // komedon
         [0, 0, 0], // barier
-        [0, 1], // aroundeyes
-        [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1], // firstwork TODO
-        [1, , 1, 1, 1, 1, 1, 1, 1, 1, 1] // allerg TODO
+        [0, 0], // aroundeyes
+        [0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], // firstwork TODO
+        [0, , 0, 0, 0, 0, 0, 0, 0, 0, 0] // allerg TODO
       ]
     },
-
-
 
 
   ]
@@ -662,7 +688,7 @@ document.addEventListener('wpcf7mailsent', function (event) {
     [0, 0, 0, 0], // komedon
     [0, 0, 0], // barier
     [0, 0], // aroundeyes
-    [0, 0, 0, 0, 0, 0, 0, 0], // firstwork
+    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], // firstwork
     [0, , 0, 0, 0, 0, 0, 0, 0, 0, 0] // allerg
   ]
 
@@ -683,20 +709,68 @@ document.addEventListener('wpcf7mailsent', function (event) {
     return RES
   }
 
+  var handleFirstWorkInputs = function (is, ai) {
+    filteredInputs = []
+
+    var ALL_RES = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+    is.forEach(function (inp) {
+      if (inp['name'] === "checkbox-firstwork[]") filteredInputs.push(inp);
+    })
+
+    ai[7].answers.forEach(function (q, qIndex) {
+      filteredInputs.forEach(function (fi, aIndex) {
+        if (q === fi['value']) {
+          ALL_RES[qIndex] = 1
+          // ALL_RES.push({res: RES, id: qIndex}) TODO remove
+        }
+      })
+    })
+
+    console.debug('FW_RES', ALL_RES)
+    console.debug('FW_FI', filteredInputs)
+    console.debug('FW_ANSWERS', ai[7].answers)
+    return ALL_RES
+  }
+
   var autoCompilation = function (r, gs) {
     gs.forEach(function (t) {
       t.compliance.forEach(function (cat, catId) {
         cat.forEach(function (cri, criId) {
-          if (cri === 0 && r[catId][criId] === 1) {
-            t['complianceResult'] = false
-            t['incomplianceCriteria'] = t['incomplianceCriteria'] || []
-            t['incomplianceCriteriaHumanReadable'] = t['incomplianceCriteriaHumanReadable'] || []
-            t['incomplianceCriteria'].push([catId, criId])
-            t['incomplianceCriteriaHumanReadable'].push({
-              'question': answer_index[catId]['question'],
-              'answer': answer_index[catId]['answers'][criId]
-            })
+
+/////////////////////////////// FIRSTWORK  /////////////////////////////////////////////////
+          if (cat === "firstwork") {
+            console.debug('FW_CRI', cri)
+            console.debug('FW_RESULT', r)
+            if (cri === 0 && r[catId][criId] !== 0) {
+              console.debug('FW ZER NOTZERO')
+              t['complianceResult'] = false
+              t['incomplianceCriteria'] = t['incomplianceCriteria'] || []
+              t['incomplianceCriteriaHumanReadable'] = t['incomplianceCriteriaHumanReadable'] || []
+              t['incomplianceCriteria'].push([catId, criId])
+              t['incomplianceCriteriaHumanReadable'].push({
+                'question': answer_index[catId]['question'],
+                'answer': answer_index[catId]['answers'][criId]
+              })
+            }
           }
+
+/////////////////////////////// FIRSTWORK END  /////////////////////////////////////////////////
+
+          if (cat !== "firstwork") { // проверяем для всех категорий кроме "Над чем в первую очередь поработать" - для нее отдельная логика ниже
+            // console.debug('NOT_FW_CRI', cri)
+            // console.debug('NOT_FW_RESULT', r)
+            if (cri === 0 && r[catId][criId] === 1) {
+              t['complianceResult'] = false
+              t['incomplianceCriteria'] = t['incomplianceCriteria'] || []
+              t['incomplianceCriteriaHumanReadable'] = t['incomplianceCriteriaHumanReadable'] || []
+              t['incomplianceCriteria'].push([catId, criId])
+              t['incomplianceCriteriaHumanReadable'].push({
+                'question': answer_index[catId]['question'],
+                'answer': answer_index[catId]['answers'][criId]
+              })
+            }
+          }
+
         })
       })
       console.debug(t)
@@ -705,13 +779,18 @@ document.addEventListener('wpcf7mailsent', function (event) {
   }
 
   var result = handleInputs(FACT_INPUTS, answer_index)
+  var firstworkResult = handleFirstWorkInputs(FACT_INPUTS, answer_index)
   var compiled = autoCompilation(result, goods)
   var yesGoods = []
+  var yesGoodsFull = []
+  var yesGoodsFullFinal = []
+  var yesGoodsFinal = []
 
   compiled.forEach(function (c) {
     var app = 'NO '
     if (!c['incomplianceCriteria']) {
       yesGoods.push(c['id'])
+      yesGoodsFull.push(c)
       app = 'YES '
     }
     console.debug(app + c['id'])
@@ -720,11 +799,71 @@ document.addEventListener('wpcf7mailsent', function (event) {
     console.debug('')
   })
 
+  function getMaxOfArray(numArray) {
+    return Math.max.apply(null, numArray);
+  }
+
+
+  var exceptFirstworkDuplicates = function (c) {
+    var matchBuffers = {
+      "wash": [],
+      "serum": [],
+      "daily-care": [],
+      "nightly-care": [],
+      "around-care": [],
+      "multi": [],
+      "eyes": []
+    }
+    var res = firstworkResult
+    c.forEach(function (t) {
+      Object.keys(matchBuffers).forEach(function (cat) {
+        if (t.cat === cat) {
+          matchBuffers[cat].push(t)
+        }
+      })
+    })
+
+    Object.keys(matchBuffers).forEach(function (cat) {
+      matchBuffers[cat + "_max"] = 0
+
+      matchBuffers[cat].forEach(function (t) {
+
+        res.forEach(function (v, i) {
+
+          if (matchBuffers[cat + "_max"] < t.compliance[7][i]) {
+            matchBuffers[cat + "_max"] = t.compliance[7][i]
+          }
+        })
+
+      })
+    })
+
+    console.debug('-----------------START FILTER MAX RATE--------------------')
+    Object.keys(matchBuffers).forEach(function (cat) {
+      if (!cat.includes('max')) console.debug('CATEGORY: ' + cat);
+      var max = matchBuffers[cat + "_max"]
+      if (Array.isArray(matchBuffers[cat])) {
+        matchBuffers[cat].forEach(function (t) {
+          var lMax = getMaxOfArray(t.compliance[7])
+          if (lMax === max) {
+            console.debug(t)
+            yesGoodsFinal.push(t.id)
+            yesGoodsFullFinal.push(t)
+          }
+        })
+      }
+    })
+    console.debug('-----------------END FILTER MAX RATE--------------------')
+  }
+
+  console.debug('YES_GOODS', yesGoodsFull)
+  exceptFirstworkDuplicates(yesGoodsFull)
+
   var app = ''
-  if( yesGoods.length > 0) {
+  if (yesGoods.length > 0) {
     app = yesGoods.join(',')
   }
-  var URL = 'https://angellab.pro/cart?fill_cart='+app
-  console.debug('URL')
+  var URL = 'https://angellab.pro/cart?fill_cart=' + app
+  console.debug('URL', URL)
   window.open(URL)
 }, false);
