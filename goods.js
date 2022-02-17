@@ -199,6 +199,40 @@ document.addEventListener('wpcf7mailsent', function (event) {
     },
 
     {
+      id: "33978",
+      name: "Флюид \"С ферментами\"",
+      cat: "wash",
+      compliance: [
+        [1, 1, 1], // pory
+        [1, 1, 1, 1],// sebum
+        [1, 1, 1], // sklon,
+        [2, 1], // pigment
+        [1, 1, 1, 1], // komedon
+        [0, 1, 1], // barier
+        [1, 1], // aroundeyes
+        [1, 1, 1, 0, 1, 0, 1, 0, 2, 1, 1, 2, 2, 1], // firstwork
+        [1, , 0, 1, 1, 1, 0, 1, 1, 1, 1] // allerg
+      ]
+    },
+
+    {
+      id: "34794",
+      name: "Флюид \"С ферментами нежный\"",
+      cat: "wash",
+      compliance: [
+        [1, 1, 1], // pory
+        [0, 1, 1, 2],// sebum
+        [0, 1, 1], // sklon,
+        [2, 1], // pigment
+        [1, 1, 1, 1], // komedon
+        [1, 1, 0], // barier
+        [1, 1], // aroundeyes
+        [1, 1, 1, 1, 1, 0, 1, 1, 2, 0, 0, 2, 2, 1], // firstwork
+        [1, , 0, 1, 1, 1, 0, 1, 1, 1, 1] // allerg
+      ]
+    },
+
+    {
       id: "18982",
       cat: "daily-care",
       name: "Флюид \"Дневной\"",
