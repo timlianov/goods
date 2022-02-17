@@ -1,5 +1,17 @@
 console.log('GOODS.JS')
 document.addEventListener('wpcf7mailsent', function (event) {
+
+  // EMPTYING CART
+  function httpGet(theUrl)
+  {
+    var xmlHttp = new XMLHttpRequest();
+    xmlHttp.open( "GET", theUrl, false ); // false for synchronous request
+    xmlHttp.send( null );
+    return xmlHttp.responseText;
+  }
+
+  httpGet("https://angellab.pro/cart?empty-cart");
+
   ga('send', 'event', 'Contact Form', 'submit');
   console.log('FORM_SUBMIT', event)
   var FACT_INPUTS = event.detail.inputs;
@@ -129,10 +141,10 @@ document.addEventListener('wpcf7mailsent', function (event) {
         [1, 1, 1, 0], // sebum
         [1, 0, 1], // sklon
         [1, 1], // pigment
-        [1, 1, 1, 1], // komedon
+        [2, 2, 1, 1], // komedon
         [0, 1, 1], // barier
-        [0, 0], // aroundeyes
-        [1, 0, 0, 0, 1, 0, 1, 0, 1, 1, 2, 1, 1, 0], // firstwork
+        [1, 1], // aroundeyes
+        [1, 1, 0, 0, 1, 0, 1, 0, 2, 1, 2, 1, 1, 0], // firstwork
         [1, , 1, 0, 1, 1, 1, 1, 1, 1, 1] // allerg
       ]
     },
@@ -147,8 +159,8 @@ document.addEventListener('wpcf7mailsent', function (event) {
         [1, 1], // pigment
         [1, 1, 1, 1], // komedon
         [1, 1, 0], // barier
-        [0, 0], // aroundeyes
-        [1, 0, 0, 1, 1, 1, 2, 1, 1, 0, 1, 1, 1, 0], // firstwork
+        [1, 1], // aroundeyes
+        [1, 1, 0, 1, 1, 1, 2, 1, 1, 0, 1, 1, 1, 0], // firstwork
         [1, , 1, 0, 1, 1, 1, 1, 1, 1, 1] // allerg
       ]
     },
@@ -161,10 +173,10 @@ document.addEventListener('wpcf7mailsent', function (event) {
         [1, 1, 1, 0],// sebum
         [1, 0, 1], // sklon,
         [1, 1], // pigment
-        [1, 1, 1, 1], // komedon
+        [2, 2, 1, 1], // komedon
         [0, 1, 1], // barier
-        [0, 0], // aroundeyes
-        [1, 0, 0, 0, 1, 0, 1, 0, 1, 1, 2, 1, 1, 1], // firstwork
+        [1, 1], // aroundeyes
+        [1, 1, 0, 0, 1, 0, 1, 0, 2, 1, 2, 1, 1, 1], // firstwork
         [1, , 0, 1, 1, 1, 0, 1, 1, 1, 1] // allerg
       ]
     },
@@ -180,8 +192,8 @@ document.addEventListener('wpcf7mailsent', function (event) {
         [1, 1], // pigment
         [1, 1, 1, 1], // komedon
         [1, 1, 0], // barier
-        [0, 0], // aroundeyes
-        [1, 0, 0, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1], // firstwork
+        [1, 1], // aroundeyes
+        [1, 1, 0, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1], // firstwork
         [1, , 0, 1, 1, 1, 0, 1, 1, 1, 1] // allerg
       ]
     },
@@ -196,26 +208,26 @@ document.addEventListener('wpcf7mailsent', function (event) {
         [1, 0, 1], // sklon,
         [1, 1], // pigment
         [1, 1, 1, 1], // komedon
-        [0, 0, 0], // barier
-        [0, 0], // aroundeyes
-        [1, 0, 1, 1, 1, 0, 1, 0, 1, 1, 1, 1, 1, 1], // firstwork
+        [1, 1, 1], // barier
+        [1, 1], // aroundeyes
+        [1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1], // firstwork
         [1, , 1, 1, 0, 0, 0, 1, 1, 1, 1] // allerg
       ]
     },
 
     {
-      id: "19089",
+      id: "19088",
       name: "Флюид \"Ночной с СОД\"",
       cat: "serum",
       compliance: [
         [1, 1, 1], // pory
         [1, 1, 1, 1],// sebum
         [1, 1, 1], // sklon,
-        [1, 0], // pigment
-        [1, 1, 1, 0], // komedon
-        [0, 0, 0], // barier
-        [0, 0], // aroundeyes
-        [1, 0, 0, 1, 1, 0, 1, 1, 1, 1, 1, 2, 2, 1], // firstwork
+        [2, 0], // pigment
+        [1, 1, 1, 1], // komedon
+        [1, 1, 1], // barier
+        [1, 1], // aroundeyes
+        [1, 1, 0, 1, 1, 0, 1, 2, 1, 1, 1, 2, 2, 2], // firstwork
         [1, , 1, 1, 0, 0, 1, 1, 1, 1, 1] // allerg
       ]
     },
@@ -226,47 +238,47 @@ document.addEventListener('wpcf7mailsent', function (event) {
       cat: "serum",
       compliance: [
         [1, 1, 1], // pory
-        [1, 1, 1, 0],// sebum
-        [1, 1, 1], // sklon,
+        [2, 1, 1, 0],// sebum
+        [1, 0, 1], // sklon,
         [0, 1], // pigment
         [1, 1, 1, 0], // komedon
-        [0, 0, 0], // barier
-        [0, 0], // aroundeyes
-        [1, 0, 0, 0, 1, 0, 1, 0, 1, 2, 1, 0, 0, 0], // firstwork TODO
+        [1, 1, 1], // barier
+        [1, 1], // aroundeyes
+        [1, 1, 0, 0, 1, 0, 1, 0, 2, 2, 2, 0, 0, 0], // firstwork TODO
         [1, , 1, 1, 1, 1, 1, 1, 1, 1, 1] // allerg TODO
       ]
     },
 
     {
-      id: "18987",
+      id: "18986",
       name: "Флюид \"с СОД\"",
       cat: "serum",
       compliance: [
         [1, 1, 1], // pory
-        [1, 1, 1, 1],// sebum
+        [2, 1, 1, 1],// sebum
         [1, 1, 1], // sklon,
         [1, 0], // pigment
         [1, 1, 1, 0], // komedon
-        [0, 0, 0], // barier
-        [0, 0], // aroundeyes
-        [1, 0, 0, 1, 1, 1, 2, 1, 1, 2, 1, 1, 1, 1],
+        [1, 1, 1], // barier
+        [1, 1], // aroundeyes
+        [1, 1, 0, 1, 1, 1, 1, 1, 2, 2, 2, 1, 1, 2],
         [1, , 1, 1, 1, 1, 1, 1, 1, 1, 1] // allerg TODO
       ]
     },
 
     {
-      id: "26737",
+      id: "26739",
       cat: "serum",
       name: "Флюид \"Регенерация\"",
       compliance: [
         [1, 1, 1], // pory
-        [1, 1, 1, 1],// sebum
+        [1, 1, 1, 2],// sebum
         [1, 1, 1], // sklon,
-        [1, 0], // pigment
-        [0, 0, 1, 1], // komedon
-        [0, 0, 0], // barier
-        [0, 0], // aroundeyes
-        [1, 0, 0, 1, 1, 1, 1, 2, 1, 2, 1, 2, 2, 1],
+        [2, 0], // pigment
+        [0, 1, 1, 1], // komedon
+        [1, 1, 1], // barier
+        [1, 1], // aroundeyes
+        [1, 1, 0, 1, 1, 1, 1, 2, 1, 1, 1, 2, 2, 1],
         [1, , 1, 1, 1, 1, 1, 1, 1, 1, 1] // allerg TODO
       ]
     },
@@ -279,11 +291,11 @@ document.addEventListener('wpcf7mailsent', function (event) {
         [1, 1, 1], // pory
         [1, 1, 1, 1],// sebum
         [1, 1, 1], // sklon,
-        [1, 0], // pigment
-        [0, 0, 1, 1], // komedon
-        [0, 0, 0], // barier
-        [0, 0], // aroundeyes
-        [1, 0, 0, 1, 1, 1, 3, 1, 1, 1, 0, 2, 2, 1],
+        [3, 0], // pigment
+        [0, 1, 1, 1], // komedon
+        [1, 1, 1], // barier
+        [1, 1], // aroundeyes
+        [1, 1, 0, 1, 1, 1, 2, 1, 1, 1, 1, 2, 2, 2],
         [1, , 1, 1, 1, 1, 1, 1, 1, 1, 1] // allerg TODO
       ]
     },
@@ -297,10 +309,10 @@ document.addEventListener('wpcf7mailsent', function (event) {
         [1, 1, 1, 0],// sebum
         [1, 0, 1], // sklon,
         [1, 0], // pigment
-        [0, 0, 1, 1], // komedon
-        [0, 0, 0], // barier
-        [0, 0], // aroundeyes
-        [1, 0, 0, 1, 1, 1, 1, 0, 1, 2, 1, 1, 1, 0],
+        [1, 0, 1, 1], // komedon
+        [1, 1, 1], // barier
+        [1, 1], // aroundeyes
+        [1, 1, 0, 0, 1, 0, 1, 0, 1, 2, 1, 1, 1, 0],
         [1, , 1, 1, 1, 1, 1, 1, 1, 1, 1] // allerg TODO
       ]
     },
@@ -315,9 +327,9 @@ document.addEventListener('wpcf7mailsent', function (event) {
         [1, 0, 1], // sklon,
         [0, 1], // pigment
         [1, 1, 1, 0], // komedon
-        [0, 0, 0], // barier
-        [0, 0], // aroundeyes
-        [1, 0, 0, 0, 1, 0, 1, 0, 1, 2, 1, 0, 0, 0],
+        [1, 1, 1], // barier
+        [1, 1], // aroundeyes
+        [1, 1, 0, 0, 1, 0, 1, 0, 1, 2, 2, 0, 0, 0],
         [1, , 1, 1, 1, 1, 1, 1, 1, 1, 1] // allerg TODO
       ]
     },
@@ -328,13 +340,13 @@ document.addEventListener('wpcf7mailsent', function (event) {
       cat: "daily-care",
       compliance: [
         [1, 1, 1], // pory
-        [0, 1, 1, 0],// sebum
+        [0, 1, 2, 0],// sebum
         [0, 1, 1], // sklon,
         [1, 1], // pigment
         [1, 1, 1, 1], // komedon
-        [0, 0, 0], // barier
-        [0, 0], // aroundeyes
-        [1, 0, 1, 1, 1, 0, 1, 1, 1, 0, 1, 1, 1, 1],
+        [1, 1, 1], // barier
+        [1, 1], // aroundeyes
+        [1, 1, 1, 1, 1, 0, 1, 1, 1, 0, 1, 1, 1, 1],
         [1, , 1, 1, 1, 1, 1, 1, 1, 1, 1] // allerg TODO
       ]
     },
@@ -345,13 +357,13 @@ document.addEventListener('wpcf7mailsent', function (event) {
       cat: "daily-care",
       compliance: [
         [1, 1, 1], // pory
-        [0, 0, 1, 1],// sebum
-        [0, 1, 0], // sklon,
+        [0, 1, 1, 2],// sebum
+        [0, 1, 1], // sklon,
         [1, 1], // pigment
         [0, 0, 0, 1], // komedon
-        [0, 0, 0], // barier
-        [0, 0], // aroundeyes
-        [1, 0, 1, 1, 1, 0, 1, 1, 1, 0, 0, 1, 1, 1],
+        [1, 1, 1], // barier
+        [1, 1], // aroundeyes
+        [1, 1, 1, 1, 1, 0, 1, 1, 1, 0, 0, 1, 1, 1],
         [1, , 1, 1, 1, 1, 1, 1, 1, 1, 1] // allerg TODO
       ]
     },
@@ -363,12 +375,12 @@ document.addEventListener('wpcf7mailsent', function (event) {
       compliance: [
         [1, 1, 1], // pory
         [0, 1, 1, 1],// sebum
-        [0, 1, 1], // sklon,
-        [0, 1], // pigment
+        [1, 1, 1], // sklon,
+        [0, 2], // pigment
         [0, 0, 1, 1], // komedon
-        [0, 0, 0], // barier
-        [0, 0], // aroundeyes
-        [1, 0, 0, 1, 1, 2, 2, 2, 1, 0, 0, 0, 0, 1],
+        [1, 1, 1], // barier
+        [1, 1], // aroundeyes
+        [1, 1, 0, 1, 1, 2, 2, 1, 1, 0, 0, 0, 0, 1],
         [1, , 1, 1, 1, 1, 1, 1, 1, 1, 1] // allerg TODO
       ]
     },
@@ -381,11 +393,11 @@ document.addEventListener('wpcf7mailsent', function (event) {
         [1, 1, 1], // pory
         [1, 1, 1, 0],// sebum
         [1, 0, 1], // sklon,
-        [1, 0], // pigment
+        [2, 1], // pigment
         [1, 1, 1, 0], // komedon
-        [0, 0, 0], // barier
-        [0, 0], // aroundeyes
-        [1, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 1],
+        [1, 1, 1], // barier
+        [1, 1], // aroundeyes
+        [1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2],
         [1, , 1, 1, 1, 1, 1, 1, 1, 1, 1] // allerg TODO
       ]
     },
@@ -396,13 +408,13 @@ document.addEventListener('wpcf7mailsent', function (event) {
       cat: "nightly-care",
       compliance: [
         [1, 1, 1], // pory
-        [1, 1, 1, 0],// sebum
+        [0, 1, 1, 0],// sebum
         [1, 1, 1], // sklon,
-        [1, 0], // pigment
-        [0, 0, 1, 1], // komedon
-        [0, 0, 0], // barier
-        [0, 0], // aroundeyes
-        [1, 0, 0, 1, 1, 1, 1, 1, 1, 0, 0, 1, 1, 2],
+        [1, 1], // pigment
+        [0, 1, 1, 1], // komedon
+        [1, 1, 1], // barier
+        [1, 1], // aroundeyes
+        [1, 1, 0, 1, 1, 1, 1, 1, 1, 0, 0, 1, 1, 2],
         [1, , 1, 1, 1, 1, 1, 1, 1, 1, 1] // allerg TODO
       ]
     },
@@ -415,11 +427,11 @@ document.addEventListener('wpcf7mailsent', function (event) {
         [1, 1, 1], // pory
         [0, 1, 1, 1],// sebum
         [0, 1, 1], // sklon,
-        [1, 0], // pigment
-        [0, 0, 0, 1], // komedon
-        [0, 0, 0], // barier
-        [0, 0], // aroundeyes
-        [1, 0, 0, 1, 1, 1, 1, 1, 1, 0, 0, 2, 2, 1], // firstwork TODO
+        [2, 1], // pigment
+        [0, 0, 1, 1], // komedon
+        [1, 1, 1], // barier
+        [1, 1], // aroundeyes
+        [1, 1, 0, 1, 1, 1, 1, 1, 0, 0, 0, 2, 2, 1], // firstwork TODO
         [1, , 1, 1, 1, 1, 1, 1, 1, 1, 1] // allerg TODO
       ]
     },
@@ -434,9 +446,9 @@ document.addEventListener('wpcf7mailsent', function (event) {
         [1, 0, 1], // sklon,
         [0, 1], // pigment
         [1, 1, 1, 1], // komedon
-        [0, 0, 0], // barier
-        [0, 0], // aroundeyes
-        [1, 0, 0, 0, 1, 1, 1, 0, 1, 1, 1, 0, 0, 1], // firstwork TODO
+        [1, 1, 1], // barier
+        [1, 1], // aroundeyes
+        [1, 1, 0, 1, 1, 1, 1, 0, 1, 1, 1, 0, 0, 1], // firstwork TODO
         [1, , 1, 1, 1, 1, 1, 1, 1, 1, 1] // allerg TODO
       ]
     },
@@ -450,9 +462,9 @@ document.addEventListener('wpcf7mailsent', function (event) {
         [1, 1, 1, 0],// sebum
         [1, 0, 1], // sklon,
         [0, 1], // pigment
-        [1, 1, 1, 1], // komedon
-        [0, 0, 0], // barier
-        [0, 0], // aroundeyes
+        [0, 0, 1, 1], // komedon
+        [1, 1, 1], // barier
+        [1, 1], // aroundeyes
         [1, 1, 0, 1, 1, 2, 1, 1, 1, 0, 0, 0, 0, 1], // firstwork TODO
         [1, , 1, 1, 1, 1, 1, 1, 1, 1, 1] // allerg TODO
       ]
@@ -464,13 +476,13 @@ document.addEventListener('wpcf7mailsent', function (event) {
       cat: "around-care",
       compliance: [
         [1, 1, 1], // pory
-        [1, 1, 1, 1],// sebum
+        [0, 1, 1, 1],// sebum
         [1, 1, 1], // sklon,
         [0, 1], // pigment
         [1, 1, 1, 1], // komedon
-        [0, 0, 0], // barier
-        [0, 0], // aroundeyes
-        [1, 0, 0, 1, 1, 1, 1, 1, 1, 0, 1, 0, 0, 2], // firstwork TODO
+        [1, 1, 1], // barier
+        [1, 1], // aroundeyes
+        [1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 1], // firstwork TODO
         [1, , 1, 1, 1, 1, 1, 1, 1, 1, 1] // allerg TODO
       ]
     },
@@ -485,9 +497,9 @@ document.addEventListener('wpcf7mailsent', function (event) {
         [1, 1, 1], // sklon,
         [0, 1], // pigment
         [1, 1, 1, 1], // komedon
-        [0, 0, 0], // barier
-        [0, 0], // aroundeyes
-        [1, 0, 0, 1, 1, 2, 1, 1, 1, 0, 0, 0, 0, 0], // firstwork TODO
+        [1, 1, 1], // barier
+        [1, 1], // aroundeyes
+        [1, 1, 0, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 1], // firstwork TODO
         [1, , 1, 1, 1, 1, 1, 1, 1, 1, 1] // allerg TODO
       ]
     },
@@ -500,11 +512,11 @@ document.addEventListener('wpcf7mailsent', function (event) {
         [1, 1, 1], // pory
         [1, 1, 1, 1],// sebum
         [1, 1, 1], // sklon,
-        [1, 0], // pigment
+        [1, 1], // pigment
         [1, 1, 1, 1], // komedon
-        [0, 0, 0], // barier
+        [1, 1, 1], // barier
         [0, 1], // aroundeyes
-        [1, 0, 0, 1, 1, 1, 1, 2, 1, 0, 1, 1, 1, 2],
+        [1, 1, 1, 1, 1, 1, 1, 2, 1, 0, 1, 1, 1, 2],
         [1, , 1, 1, 1, 1, 1, 1, 1, 1, 1] // allerg TODO
       ]
     },
@@ -517,11 +529,11 @@ document.addEventListener('wpcf7mailsent', function (event) {
         [1, 1, 1], // pory
         [1, 1, 1, 1],// sebum
         [1, 1, 1], // sklon,
-        [0, 1], // pigment
+        [1, 1], // pigment
         [1, 1, 1, 1], // komedon
-        [0, 0, 0], // barier
+        [1, 1, 1], // barier
         [1, 0], // aroundeyes
-        [1, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1], // firstwork TODO
+        [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1], // firstwork TODO
         [1, , 1, 1, 1, 1, 1, 1, 1, 1, 1] // allerg TODO
       ]
     },
@@ -529,16 +541,16 @@ document.addEventListener('wpcf7mailsent', function (event) {
     {
       id: "19025",
       name: "Флюид \"Физиологичный\"",
-      cat: "multi",
+      cat: "pmask",
       compliance: [
         [1, 1, 1], // pory
         [1, 1, 1, 1],// sebum
         [1, 1, 1], // sklon,
         [0, 1], // pigment
         [1, 1, 1, 1], // komedon
-        [0, 0, 0], // barier
-        [0, 0], // aroundeyes
-        [1, 0, 0, 1, 1, 2, 2, 1, 1, 0, 1, 0, 0, 1], // firstwork TODO
+        [1, 1, 1], // barier
+        [1, 1], // aroundeyes
+        [0, 0, 0, 1, 1, 1, 1, 1, 1, 0, 1, 0, 0, 1], // firstwork TODO
         [1, , 1, 1, 1, 1, 1, 1, 1, 1, 1] // allerg TODO
       ]
     },
@@ -546,16 +558,16 @@ document.addEventListener('wpcf7mailsent', function (event) {
     {
       id: "19023",
       name: "Флюид \"Очищение и уход\"",
-      cat: "multi",
+      cat: "cmask",
       compliance: [
         [1, 1, 1], // pory
         [1, 1, 1, 1],// sebum
         [1, 1, 1], // sklon,
         [1, 0], // pigment
         [1, 1, 1, 1], // komedon
-        [0, 0, 0], // barier
-        [0, 0], // aroundeyes
-        [1, 0, 0, 1, 1, 0, 1, 1, 2, 1, 1, 1, 1, 1], // firstwork TODO
+        [1, 1, 1], // barier
+        [1, 1], // aroundeyes
+        [0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 0], // firstwork TODO
         [1, , 1, 1, 1, 1, 1, 1, 0, 1, 1] // allerg TODO
       ]
     },
@@ -565,15 +577,15 @@ document.addEventListener('wpcf7mailsent', function (event) {
       name: "Флюид \"Для рук и тела\"",
       cat: "hands",
       compliance: [
-        [0, 0, 0], // pory
-        [0, 0, 0, 0],// sebum
-        [0, 0, 0], // sklon,
-        [0, 0], // pigment
-        [0, 0, 0, 0], // komedon
-        [0, 0, 0], // barier
-        [0, 0], // aroundeyes
+        [1, 1, 1], // pory
+        [1, 1, 1, 1],// sebum
+        [1, 1, 1], // sklon,
+        [1, 1], // pigment
+        [1, 1, 1, 1], // komedon
+        [1, 1, 1], // barier
+        [1, 1], // aroundeyes
         [0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], // firstwork TODO
-        [0, , 0, 0, 0, 0, 0, 0, 0, 0, 0] // allerg TODO
+        [1, , 1, 1, 1, 1, 1, 1, 1, 1, 1] // allerg TODO
       ]
     },
 
@@ -680,6 +692,19 @@ document.addEventListener('wpcf7mailsent', function (event) {
   }, {"name": "text-messenger", "value": "fsfsfs"}, {"name": "acceptance-anketa", "value": "1"}]
 
 
+  //                                               1й прогон
+
+
+  var CATS =[
+    "wash",
+    "serum",
+    "daily-care",
+    "nightly-care",
+    "around-care",
+    "pmask",
+    "cmask",
+    "eyes"
+  ]
   var EMPTY_ANSWERS = [
     [0, 0, 0], // pory
     [0, 0, 0, 0],// sebum
@@ -692,6 +717,8 @@ document.addEventListener('wpcf7mailsent', function (event) {
     [0, , 0, 0, 0, 0, 0, 0, 0, 0, 0] // allerg
   ]
 
+
+  // вопросы 1го уровня
   var handleInputs = function (is, ai) {
     var RES = EMPTY_ANSWERS
     ai.forEach(function (q) {
@@ -709,6 +736,8 @@ document.addEventListener('wpcf7mailsent', function (event) {
     return RES
   }
 
+
+  // вопросы 2го уровня
   var handleFirstWorkInputs = function (is, ai) {
     filteredInputs = []
 
@@ -732,30 +761,13 @@ document.addEventListener('wpcf7mailsent', function (event) {
     return ALL_RES
   }
 
+  // функция первого прогона для вопросов 1го и 2го уровней - выбрасывает товары из-за несоответствия ("нули")
   var autoCompilation = function (r, gs) {
     gs.forEach(function (t) {
       t.compliance.forEach(function (cat, catId) {
         cat.forEach(function (cri, criId) {
 
-/////////////////////////////// FIRSTWORK  /////////////////////////////////////////////////
-          if (cat === "firstwork") {
-            console.debug('FW_CRI', cri)
-            console.debug('FW_RESULT', r)
-            if (cri === 0 && r[catId][criId] !== 0) {
-              console.debug('FW ZER NOTZERO')
-              t['complianceResult'] = false
-              t['incomplianceCriteria'] = t['incomplianceCriteria'] || []
-              t['incomplianceCriteriaHumanReadable'] = t['incomplianceCriteriaHumanReadable'] || []
-              t['incomplianceCriteria'].push([catId, criId])
-              t['incomplianceCriteriaHumanReadable'].push({
-                'question': answer_index[catId]['question'],
-                'answer': answer_index[catId]['answers'][criId]
-              })
-            }
-          }
-
-/////////////////////////////// FIRSTWORK END  /////////////////////////////////////////////////
-
+          // часть функции отбора для вопросов 1го уровня
           if (cat !== "firstwork") { // проверяем для всех категорий кроме "Над чем в первую очередь поработать" - для нее отдельная логика ниже
             // console.debug('NOT_FW_CRI', cri)
             // console.debug('NOT_FW_RESULT', r)
@@ -771,6 +783,28 @@ document.addEventListener('wpcf7mailsent', function (event) {
             }
           }
 
+
+          // часть функции отбора для вопросов 2го уровня
+/////////////////////////////// FIRSTWORK  /////////////////////////////////////////////////
+          if (cat === "firstwork") {
+            console.debug('FW_CRI', cri)
+            console.debug('FW_RESULT', r)
+            if (cri === 0 && r[catId][criId] > 0) {
+              console.debug('FW ZER NOTZERO', cri, r)
+              t['complianceResult'] = false
+              t['incomplianceCriteria'] = t['incomplianceCriteria'] || []
+              t['incomplianceCriteriaHumanReadable'] = t['incomplianceCriteriaHumanReadable'] || []
+              t['incomplianceCriteria'].push([catId, criId])
+              t['incomplianceCriteriaHumanReadable'].push({
+                'question': answer_index[catId]['question'],
+                'answer': answer_index[catId]['answers'][criId]
+              })
+            }
+          }
+
+/////////////////////////////// FIRSTWORK END  /////////////////////////////////////////////////
+
+
         })
       })
       console.debug(t)
@@ -778,9 +812,16 @@ document.addEventListener('wpcf7mailsent', function (event) {
     return gs;
   }
 
+
+
+
+  // отбор вопросов 1го уровня
   var result = handleInputs(FACT_INPUTS, answer_index)
+
+  // отбор вопросов 2го уровня
   var firstworkResult = handleFirstWorkInputs(FACT_INPUTS, answer_index)
   var compiled = autoCompilation(result, goods)
+
   var yesGoods = []
   var yesGoodsFull = []
   var yesGoodsFullFinal = []
@@ -799,21 +840,98 @@ document.addEventListener('wpcf7mailsent', function (event) {
     console.debug('')
   })
 
+  //                                                2й прогон
+
   function getMaxOfArray(numArray) {
     return Math.max.apply(null, numArray);
   }
 
 
-  var exceptFirstworkDuplicates = function (c) {
+
+  var MATCH_BUFFERS = {}
+
+  var exceptCommonDuplicates = function (c) {
     var matchBuffers = {
       "wash": [],
       "serum": [],
       "daily-care": [],
       "nightly-care": [],
       "around-care": [],
-      "multi": [],
+      "pmask": [],
+      "cmask": [],
       "eyes": []
     }
+
+    var res = result
+
+    c.forEach(function (t) {
+      Object.keys(matchBuffers).forEach(function (cat) {
+        if (t.cat === cat)
+          matchBuffers[cat].push(t)
+      })
+    })
+
+    // Fill buffers  fix max values
+    Object.keys(matchBuffers).forEach(function (cat) {
+      matchBuffers[cat + "_max"] = 0
+      matchBuffers[cat]["favs"] = []
+
+      matchBuffers[cat].forEach(function (t) {
+
+        res.forEach(function (v, i) {
+          t.compliance.forEach(function (j) {
+            if (j[i] !== 0) {
+              if (matchBuffers[cat + "_max"] < j[i]) {
+                matchBuffers[cat + "_max"] = j[i]
+              }
+            }
+          })
+
+          console.debug('T', t)
+
+        })
+
+      })
+    })
+
+    // отбор вопросов 1го уровня
+    yesGoodsFinal = []
+    yesGoodsFullFinal = []
+    console.debug('-----------------START FILTER MAX RATE FOR COMMONS--------------------')
+    Object.keys(matchBuffers).forEach(function (cat) {
+      if (!cat.includes('max')) console.debug('CATEGORY: ' + cat);
+      var max = matchBuffers[cat + "_max"]
+      if (Array.isArray(matchBuffers[cat])) {
+
+        matchBuffers[cat].forEach(function (t) {
+          t.compliance.forEach(function (j) {
+            var lMax = getMaxOfArray(j)
+            if (lMax === max) {
+              console.debug('COMMON_MAX_T', t)
+              yesGoodsFinal.push(t.id)
+              yesGoodsFullFinal.push(t)
+              var newFavs = matchBuffers[cat]['favs']
+              newFavs.push(t)
+              matchBuffers[cat]['favs'] = newFavs
+            }
+          })
+        })
+      }
+    })
+
+    MATCH_BUFFERS = matchBuffers
+    console.debug(matchBuffers)
+    console.debug(yesGoodsFullFinal)
+    console.debug(yesGoodsFinal)
+
+    console.debug('-----------------END FILTER MAX RATE FOR COMMONS--------------------')
+
+  }
+
+
+  var exceptFirstworkDuplicates = function (c) {
+    var matchBuffers = MATCH_BUFFERS
+    console.debug('MATCH_BUFFERS', MATCH_BUFFERS)
     var res = firstworkResult
     c.forEach(function (t) {
       Object.keys(matchBuffers).forEach(function (cat) {
@@ -823,22 +941,35 @@ document.addEventListener('wpcf7mailsent', function (event) {
       })
     })
 
-    Object.keys(matchBuffers).forEach(function (cat) {
+
+    // Fill buffers  fix max values
+    CATS.forEach(function (cat) {
       matchBuffers[cat + "_max"] = 0
 
+      // Replace cats' content with favs from previous step
+      matchBuffers[cat] = matchBuffers[cat]["favs"]
+
+      console.debug('CATCAT', cat,  matchBuffers[cat])
       matchBuffers[cat].forEach(function (t) {
 
         res.forEach(function (v, i) {
 
-          if (matchBuffers[cat + "_max"] < t.compliance[7][i]) {
-            matchBuffers[cat + "_max"] = t.compliance[7][i]
+          if (t.compliance[7][i] !== 0) {
+            if (matchBuffers[cat + "_max"] < t.compliance[7][i]) {
+              matchBuffers[cat + "_max"] = t.compliance[7][i]
+            }
           }
+
         })
 
       })
     })
 
-    console.debug('-----------------START FILTER MAX RATE--------------------')
+    console.debug('-----------------START FILTER MAX RATE FOR FIRSTWORK--------------------')
+
+    yesGoodsFinal = []
+    yesGoodsFullFinal = []
+
     Object.keys(matchBuffers).forEach(function (cat) {
       if (!cat.includes('max')) console.debug('CATEGORY: ' + cat);
       var max = matchBuffers[cat + "_max"]
@@ -847,21 +978,69 @@ document.addEventListener('wpcf7mailsent', function (event) {
           var lMax = getMaxOfArray(t.compliance[7])
           if (lMax === max) {
             console.debug(t)
-            yesGoodsFinal.push(t.id)
-            yesGoodsFullFinal.push(t)
+            // yesGoodsFinal.push(t.id)
+            // yesGoodsFullFinal.push(t)
+            var newFavs = []
+            newFavs.push(t)
+            matchBuffers[cat]['favs_final'] = newFavs
           }
         })
       }
     })
-    console.debug('-----------------END FILTER MAX RATE--------------------')
+    console.debug('-----------------END FILTER MAX RATE FOR FIRSTWORK--------------------')
+
+
+    console.debug('-----------------START FILTER DUPLICATES FOR FW-------------------')
+    Object.keys(matchBuffers).forEach(function (cat) {
+      if (!cat.includes('max')) console.debug('CATEGORY: ' + cat);
+      var max = matchBuffers[cat + "_max"]
+      if (Array.isArray(matchBuffers[cat])) {
+        matchBuffers[cat].forEach(function (t) {
+          var ft = matchBuffers[cat]['favs_final'][0]
+          yesGoodsFinal.push(ft.id)
+          yesGoodsFullFinal.push(ft)
+        })
+      }
+    })
+    console.debug('MB FINAL!!!', matchBuffers, yesGoodsFullFinal)
+    console.debug('-----------------STOP FILTER DUPLICATES FOR FW-------------------')
+
+
+
+
+    //////////////////////// TODO FILTER ZEROS ///////////////////////////////
+
+    console.debug('-----------------START FILTER ZEROS --------------------')
+    Object.keys(matchBuffers).forEach(function (cat) {
+      if (!cat.includes('max')) console.debug('CATEGORY: ' + cat);
+      var max = matchBuffers[cat + "_max"]
+      if (Array.isArray(matchBuffers[cat])) {
+        matchBuffers[cat].forEach(function (t) {
+          t.compliance[7].forEach(function (tc) {
+            if (tc === 0) {
+              console.debug("ZERO TC", t, tc)
+            }
+          })
+        })
+      }
+    })
+    console.debug('-----------------END FILTER ZEROS--------------------')
+
+
   }
 
   console.debug('YES_GOODS', yesGoodsFull)
+
+  // отбор вопросов 1го уровня
+  exceptCommonDuplicates(yesGoodsFull)
+  // отбор вопросов 2го уровня
   exceptFirstworkDuplicates(yesGoodsFull)
+
+  var FINAL = Array.from(new Set(yesGoodsFinal))
 
   var app = ''
   if (yesGoods.length > 0) {
-    app = yesGoods.join(',')
+    app = FINAL.join(',')
   }
   var URL = 'https://angellab.pro/cart?fill_cart=' + app
   console.debug('URL', URL)
