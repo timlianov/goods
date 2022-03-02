@@ -159,7 +159,7 @@ document.addEventListener('wpcf7mailsent', function (event) {
         [1, 1, 1, 1], // komedon
         [1, 1, 0], // barier
         [1, 1], // aroundeyes
-        [1, 1, 0, 1, 1, 1, 2, 1, 1, 0, 1, 1, 1, 0], // firstwork
+        [1, 1, 0, 1, 1, 1, 2, 1, 1, 0, 1, 1, 1, 1], // firstwork
         [1, , 1, 0, 1, 1, 1, 1, 1, 1, 1] // allerg
       ]
     },
@@ -192,7 +192,7 @@ document.addEventListener('wpcf7mailsent', function (event) {
         [1, 1, 1, 1], // komedon
         [1, 1, 0], // barier
         [1, 1], // aroundeyes
-        [1, 1, 0, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1], // firstwork
+        [1, 1, 0, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 2], // firstwork
         [1, , 0, 1, 1, 1, 0, 1, 1, 1, 1] // allerg
       ]
     },
@@ -464,7 +464,7 @@ document.addEventListener('wpcf7mailsent', function (event) {
         [0, 0, 1, 1], // komedon
         [1, 1, 1], // barier
         [1, 1], // aroundeyes
-        [1, 1, 0, 1, 1, 1, 1, 1, 0, 0, 0, 2, 2, 1], // firstwork TODO
+        [1, 0, 0, 1, 1, 1, 1, 1, 0, 0, 0, 2, 2, 1], // fw
         [1, , 1, 1, 1, 1, 1, 1, 1, 1, 1] // allerg TODO
       ]
     },
@@ -526,10 +526,10 @@ document.addEventListener('wpcf7mailsent', function (event) {
       cat: "around-care",
       compliance: [
         [1, 1, 1], // pory
-        [1, 1, 1, 1],// sebum
-        [1, 1, 1], // sklon,
+        [0, 0, 0, 1],// sebum
+        [0, 1, 0], // sklon,
         [0, 1], // pigment
-        [1, 1, 1, 1], // komedon
+        [0, 0, 0, 1], // komedon
         [1, 1, 1], // barier
         [1, 1], // aroundeyes
         [1, 1, 0, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 1], // firstwork TODO
@@ -718,44 +718,43 @@ document.addEventListener('wpcf7mailsent', function (event) {
                 // product.compliance[questionId][answerId] = product.compliance[questionId][answerId].toString() FOR DEBUG - STRINGIFY NEUTRALIZED VALUES
                 product.compliance[questionId][answerId] = 1
                 products[productId] = product
+
                 console.debug(
-                  'LEVEL1_QUESTION_PRODUCT_SCORE_NEUTRALIZE',
+                  'LEVEL1_SCORE_NEUTRALIZE',
                   product['id'], // product's store id
                   "QUESTION_SCORE_MATRIX:", answersList,
                   "QUESTION_ID=" + questionId,
                   "DEAD_ANSWER_ID=" + answerId,
                   "PRODUCT:", products[productId],
                   "PRODUCT_LIST_ID=", productId,
-                  usersFactAnswersMatrix)
+                  usersFactAnswersMatrix
+                )
               }
             }
           }
 
-
           // часть функции отбора для вопросов 2го уровня
-/////////////////////////////// FIRSTWORK  /////////////////////////////////////////////////
-//           if (cat === "firstwork") {
-//             console.debug('FW_CRI', cri)
-//             console.debug('FW_RESULT', r)
-//             if (cri === 0 && r[catId][criId] > 0) {
-//               console.debug('FW ZER NOTZERO', cri, r)
-//               t['complianceResult'] = false
-//               t['incomplianceCriteria'] = t['incomplianceCriteria'] || []
-//               t['incomplianceCriteriaHumanReadable'] = t['incomplianceCriteriaHumanReadable'] || []
-//               t['incomplianceCriteria'].push([catId, criId])
-//               t['incomplianceCriteriaHumanReadable'].push({
-//                 'question': answer_index[catId]['question'],
-//                 'answer': answer_index[catId]['answers'][criId]
-//               })
-//             }
-//           }
+          if (questionId === 7) {
+            if (answerValue === 0 && usersFactAnswersMatrix[questionId][answerId] > 0) {
+              console.debug('FW ZER NOTZERO', usersFactAnswersMatrix, questionId, answerId)
+            } else if(usersFactAnswersMatrix[questionId][answerId] === 0 && answerValue > 1) {
+              product.compliance[questionId][answerId] =1
+              products[productId] = product
 
-/////////////////////////////// FIRSTWORK END  /////////////////////////////////////////////////
-
-
+              console.debug(
+                'LEVEL2_SCORE_NEUTRALIZE',
+                product['id'], // product's store id
+                "QUESTION_SCORE_MATRIX:", answersList,
+                "QUESTION_ID=" + questionId,
+                "DEAD_ANSWER_ID=" + answerId,
+                "PRODUCT:", products[productId],
+                "PRODUCT_LIST_ID=", productId,
+                usersFactAnswersMatrix
+              )
+            }
+          }
         })
       })
-      // console.debug(t)
     })
     return products;
   }
@@ -766,6 +765,12 @@ document.addEventListener('wpcf7mailsent', function (event) {
 
   // отбор вопросов 2го уровня
   var firstworkResult = handleFirstWorkInputs(FACT_INPUTS, answer_index)
+
+  console.debug('L1_RESULT', result)
+  console.debug('L2_RESULT', firstworkResult)
+
+  result[7] = firstworkResult
+
   var compiled = autoCompilation(result, goods)
 
   var yesGoods = []
