@@ -2,11 +2,10 @@ console.log('GOODS.JS')
 document.addEventListener('wpcf7mailsent', function (event) {
 
   // EMPTYING CART
-  function httpGet(theUrl)
-  {
+  function httpGet(theUrl) {
     var xmlHttp = new XMLHttpRequest();
-    xmlHttp.open( "GET", theUrl, false ); // false for synchronous request
-    xmlHttp.send( null );
+    xmlHttp.open("GET", theUrl, false); // false for synchronous request
+    xmlHttp.send(null);
     return xmlHttp.responseText;
   }
 
@@ -580,7 +579,7 @@ document.addEventListener('wpcf7mailsent', function (event) {
         [1, 1, 1], // pory
         [1, 1, 1, 1],// sebum
         [1, 1, 1], // sklon,
-        [0, 1], // pigment
+        [1, 1], // pigment
         [1, 1, 1, 1], // komedon
         [1, 1, 1], // barier
         [1, 1], // aroundeyes
@@ -627,13 +626,10 @@ document.addEventListener('wpcf7mailsent', function (event) {
   ]
 
 
-
-
-
   //                                               1й прогон
 
 
-  var CATS =[
+  var CATS = [
     "wash",
     "serumdn",
     "serumn",
@@ -701,33 +697,39 @@ document.addEventListener('wpcf7mailsent', function (event) {
   }
 
   // функция первого прогона для вопросов 1го и 2го уровней - выбрасывает товары из-за несоответствия ("нули")
-  var autoCompilation = function (r, products) {
-    products.forEach(function (product,tId) {
-      product.compliance.forEach(function (cat, catId) {
-        cat.forEach(function (cri, criId) {
+  var autoCompilation = function (usersFactAnswersMatrix, products) {
+    products.forEach(function (product, productId) {
+      product.compliance.forEach(function (answersList, questionId) {
+        answersList.forEach(function (answerValue, answerId) {
 
           // часть функции отбора для вопросов 1го уровня
-          if (catId !== 7) { // проверяем для всех категорий кроме "Над чем в первую очередь поработать" - для нее отдельная логика ниже
-            // console.debug('NOT_FW_CRI', cri)
-            // console.debug('NOT_FW_RESULT', r)
-            if (cri === 0 && r[catId][criId] === 1) {
+          if (questionId !== 7) { // проверяем для всех категорий кроме "Над чем в первую очередь поработать" - для нее отдельная логика ниже
+            if (answerValue === 0 && usersFactAnswersMatrix[questionId][answerId] === 1) {
               product['complianceResult'] = false
               product['incomplianceCriteria'] = product['incomplianceCriteria'] || []
               product['incomplianceCriteriaHumanReadable'] = product['incomplianceCriteriaHumanReadable'] || []
-              product['incomplianceCriteria'].push([catId, criId])
+              product['incomplianceCriteria'].push([questionId, answerId])
               product['incomplianceCriteriaHumanReadable'].push({
-                'question': answer_index[catId]['question'],
-                'answer': answer_index[catId]['answers'][criId]
+                'question': answer_index[questionId]['question'],
+                'answer': answer_index[questionId]['answers'][answerId]
               })
             } else {
-              if (r[catId][criId] === 0 && cri > 1) {
-                product.compliance[catId][criId] = product.compliance[catId][criId].toString()
-                products[tId] = product
-                console.debug('LEVEL1_QUESTION_PRODUCT_SCORE_NEUTRALIZE', cat, catId, criId, products[tId], tId, r)
+              if (usersFactAnswersMatrix[questionId][answerId] === 0 && answerValue > 1) {
+                // product.compliance[questionId][answerId] = product.compliance[questionId][answerId].toString() FOR DEBUG - STRINGIFY NEUTRALIZED VALUES
+                product.compliance[questionId][answerId] = 1
+                products[productId] = product
+                console.debug(
+                  'LEVEL1_QUESTION_PRODUCT_SCORE_NEUTRALIZE',
+                  product['id'], // product's store id
+                  "QUESTION_SCORE_MATRIX:", answersList,
+                  "QUESTION_ID=" + questionId,
+                  "DEAD_ANSWER_ID=" + answerId,
+                  "PRODUCT:", products[productId],
+                  "PRODUCT_LIST_ID=", productId,
+                  usersFactAnswersMatrix)
               }
             }
           }
-
 
 
           // часть функции отбора для вопросов 2го уровня
@@ -757,8 +759,6 @@ document.addEventListener('wpcf7mailsent', function (event) {
     })
     return products;
   }
-
-
 
 
   // отбор вопросов 1го уровня
@@ -791,7 +791,6 @@ document.addEventListener('wpcf7mailsent', function (event) {
   function getMaxOfArray(numArray) {
     return Math.max.apply(null, numArray);
   }
-
 
 
   var MATCH_BUFFERS = {}
@@ -896,7 +895,7 @@ document.addEventListener('wpcf7mailsent', function (event) {
       // Replace cats' content with favs from previous step
       matchBuffers[cat] = matchBuffers[cat]["favs"]
 
-      console.debug('CATCAT', cat,  matchBuffers[cat])
+      console.debug('CATCAT', cat, matchBuffers[cat])
       matchBuffers[cat].forEach(function (t) {
 
         res.forEach(function (v, i) {
@@ -951,8 +950,6 @@ document.addEventListener('wpcf7mailsent', function (event) {
     })
     console.debug('MB FINAL!!!', matchBuffers, yesGoodsFullFinal)
     console.debug('-----------------STOP FILTER DUPLICATES FOR FW-------------------')
-
-
 
 
     //////////////////////// TODO FILTER ZEROS ///////////////////////////////
