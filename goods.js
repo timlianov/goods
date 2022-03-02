@@ -215,22 +215,22 @@ document.addEventListener('wpcf7mailsent', function (event) {
       ]
     },
 
-    {
-      id: "34794",
-      name: "Флюид \"С ферментами нежный\"",
-      cat: "wash",
-      compliance: [
-        [1, 1, 1], // pory
-        [0, 1, 1, 2],// sebum
-        [0, 1, 1], // sklon,
-        [2, 1], // pigment
-        [1, 1, 1, 1], // komedon
-        [1, 1, 0], // barier
-        [1, 1], // aroundeyes
-        [1, 1, 1, 1, 1, 0, 1, 1, 2, 0, 0, 2, 2, 1], // firstwork
-        [1, , 0, 1, 1, 1, 0, 1, 1, 1, 1] // allerg
-      ]
-    },
+    // {
+    //   id: "34794",
+    //   name: "Флюид \"С ферментами нежный\"",
+    //   cat: "wash",
+    //   compliance: [
+    //     [1, 1, 1], // pory
+    //     [0, 1, 1, 2],// sebum
+    //     [0, 1, 1], // sklon,
+    //     [2, 1], // pigment
+    //     [1, 1, 1, 1], // komedon
+    //     [1, 1, 0], // barier
+    //     [1, 1], // aroundeyes
+    //     [1, 1, 1, 1, 1, 0, 1, 1, 2, 0, 0, 2, 2, 1], // firstwork
+    //     [1, , 0, 1, 1, 1, 0, 1, 1, 1, 1] // allerg
+    //   ]
+    // },
 
     {
       id: "18982",
@@ -252,7 +252,7 @@ document.addEventListener('wpcf7mailsent', function (event) {
     {
       id: "19088",
       name: "Флюид \"Ночной с СОД\"",
-      cat: "serum",
+      cat: "serumn",
       compliance: [
         [1, 1, 1], // pory
         [1, 1, 1, 1],// sebum
@@ -269,7 +269,7 @@ document.addEventListener('wpcf7mailsent', function (event) {
     {
       id: "19026",
       name: "Флюид \"После умывания с пребиотиками и пробиотиками\"",
-      cat: "serum",
+      cat: "serumdn",
       compliance: [
         [1, 1, 1], // pory
         [2, 1, 1, 0],// sebum
@@ -286,7 +286,7 @@ document.addEventListener('wpcf7mailsent', function (event) {
     {
       id: "18986",
       name: "Флюид \"с СОД\"",
-      cat: "serum",
+      cat: "serumdn",
       compliance: [
         [1, 1, 1], // pory
         [2, 1, 1, 1],// sebum
@@ -302,7 +302,7 @@ document.addEventListener('wpcf7mailsent', function (event) {
 
     {
       id: "26739",
-      cat: "serum",
+      cat: "serumdn",
       name: "Флюид \"Регенерация\"",
       compliance: [
         [1, 1, 1], // pory
@@ -320,7 +320,7 @@ document.addEventListener('wpcf7mailsent', function (event) {
     {
       id: "28934",
       name: "Флюид \"Со стабильным витамином С\"",
-      cat: "serum",
+      cat: "serumdn",
       compliance: [
         [1, 1, 1], // pory
         [1, 1, 1, 1],// sebum
@@ -337,7 +337,7 @@ document.addEventListener('wpcf7mailsent', function (event) {
     {
       id: "19022",
       name: "Флюид \"Ночной с шиповником\"",
-      cat: "serum",
+      cat: "serumn",
       compliance: [
         [1, 1, 1], // pory
         [1, 1, 1, 0],// sebum
@@ -354,7 +354,7 @@ document.addEventListener('wpcf7mailsent', function (event) {
     {
       id: "19091",
       name: "Флюид \"Ночной с пребиотиками и пробиотиками\"",
-      cat: "serum",
+      cat: "serumn",
       compliance: [
         [1, 1, 1], // pory
         [1, 1, 1, 0],// sebum
@@ -731,7 +731,8 @@ document.addEventListener('wpcf7mailsent', function (event) {
 
   var CATS =[
     "wash",
-    "serum",
+    "serumdn",
+    "serumn",
     "daily-care",
     "nightly-care",
     "around-care",
@@ -800,9 +801,10 @@ document.addEventListener('wpcf7mailsent', function (event) {
     gs.forEach(function (t) {
       t.compliance.forEach(function (cat, catId) {
         cat.forEach(function (cri, criId) {
+          console.debug('CAT!', cat, catId, t)
 
           // часть функции отбора для вопросов 1го уровня
-          if (cat !== "firstwork") { // проверяем для всех категорий кроме "Над чем в первую очередь поработать" - для нее отдельная логика ниже
+          if (catId !== 7) { // проверяем для всех категорий кроме "Над чем в первую очередь поработать" - для нее отдельная логика ниже
             // console.debug('NOT_FW_CRI', cri)
             // console.debug('NOT_FW_RESULT', r)
             if (cri === 0 && r[catId][criId] === 1) {
@@ -820,21 +822,21 @@ document.addEventListener('wpcf7mailsent', function (event) {
 
           // часть функции отбора для вопросов 2го уровня
 /////////////////////////////// FIRSTWORK  /////////////////////////////////////////////////
-          if (cat === "firstwork") {
-            console.debug('FW_CRI', cri)
-            console.debug('FW_RESULT', r)
-            if (cri === 0 && r[catId][criId] > 0) {
-              console.debug('FW ZER NOTZERO', cri, r)
-              t['complianceResult'] = false
-              t['incomplianceCriteria'] = t['incomplianceCriteria'] || []
-              t['incomplianceCriteriaHumanReadable'] = t['incomplianceCriteriaHumanReadable'] || []
-              t['incomplianceCriteria'].push([catId, criId])
-              t['incomplianceCriteriaHumanReadable'].push({
-                'question': answer_index[catId]['question'],
-                'answer': answer_index[catId]['answers'][criId]
-              })
-            }
-          }
+//           if (cat === "firstwork") {
+//             console.debug('FW_CRI', cri)
+//             console.debug('FW_RESULT', r)
+//             if (cri === 0 && r[catId][criId] > 0) {
+//               console.debug('FW ZER NOTZERO', cri, r)
+//               t['complianceResult'] = false
+//               t['incomplianceCriteria'] = t['incomplianceCriteria'] || []
+//               t['incomplianceCriteriaHumanReadable'] = t['incomplianceCriteriaHumanReadable'] || []
+//               t['incomplianceCriteria'].push([catId, criId])
+//               t['incomplianceCriteriaHumanReadable'].push({
+//                 'question': answer_index[catId]['question'],
+//                 'answer': answer_index[catId]['answers'][criId]
+//               })
+//             }
+//           }
 
 /////////////////////////////// FIRSTWORK END  /////////////////////////////////////////////////
 
@@ -887,7 +889,8 @@ document.addEventListener('wpcf7mailsent', function (event) {
   var exceptCommonDuplicates = function (c) {
     var matchBuffers = {
       "wash": [],
-      "serum": [],
+      "serumdn": [],
+      "serumn": [],
       "daily-care": [],
       "nightly-care": [],
       "around-care": [],
