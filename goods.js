@@ -852,7 +852,7 @@ document.addEventListener('wpcf7mailsent', function (event) {
         matchBuffers[cat].forEach(function (t) {
           t.compliance.forEach(function (j) {
             var lMax = getMaxOfArray(j)
-            if (lMax === max) { ////////////////// <<<<<<<<<<<<<<<< ошибка сравнения - дополнить условие
+            if (lMax === max) {
               console.debug('COMMON_MAX_T', t, lMax, max)
               yesGoodsFinal.push(t.id)
               yesGoodsFullFinal.push(t)
