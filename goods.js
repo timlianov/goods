@@ -33,7 +33,7 @@ document.addEventListener('wpcf7mailsent', function (event) {
       answers: [
         "Очень жирная, жирная. Такая кожа выделяет много кожного сала. Жирный блеск.",
         "Нормальная. Кожа с нормальным выделением кожного сала. Т-зона может немного больше чем остальные зоны выделять себум.",
-        "\"Комбинированная: в Т-зоне склонна к жирности, щеки — нормальные или склонны к сухости. Т-зона блестит.\"",
+        "Комбинированная: в Т-зоне склонна к жирности, щеки — нормальные или склонны к сухости. Т-зона блестит.",
         "Сухая, очень сухая. Кожа выделяет мало себума.",
       ]
     },
@@ -626,104 +626,8 @@ document.addEventListener('wpcf7mailsent', function (event) {
 
   ]
 
-  var inputs = [
-    {"name": "email-anketa", "value": "lianovt@gmail.com"},
-    {
-      "name": "age",
-      "value": "32"
-    },
 
 
-    //////////////////////////
-    {"name": "checkbox-pory[]", "value": "Расширенные"}
-    ,
-
-    {
-      "name": "checkbox-sebum[]",
-      "value": "Нормальная. Кожа с нормальным выделением кожного сала. Т-зона может немного больше чем остальные зоны выделять себум."
-    },
-
-    {"name": "checkbox-sklon[]", "value": "К сухости"},
-
-    {
-      "name": "checkbox-pigments[]",
-      "value": "Да, нужна (есть нежелательная пигментация, пигментированные постакне, следы от воспалений)."
-    },
-
-
-    {"name": "checkbox-kamedons[]", "value": "Бывает время от времени."}, {
-      "name": "checkbox-bariers[]",
-      "value": "Таких реакций нет."
-    },
-    {
-      "name": "checkbox-aroundeyes[]",
-      "value": "В целом хорошее состояние кожи вокруг глаз. Требуется качественное питание и увлажнение."
-    },
-    {"name": "checkbox-firstwork[]", "value": "Питание кожи"}, {
-      "name": "checkbox-firstwork[]",
-      "value": "Шелушение"
-    },
-    {"name": "checkbox-firstwork[]", "value": "Очищение пор"},
-    //  {
-    //  "name": "checkbox-allerg[]",
-    //  "value": "Аллергии нет, ароматы натуральной косметики переносятся хорошо."
-    // },
-
-
-    /////////////////////////
-
-    {"name": "textarea-osobennosti", "value": ""}, {"name": "radio-933", "value": "123"}, {
-      "name": "checkbox-fsizes[]",
-      "value": "Полноразмерные"
-    }, {"name": "checkbox-fsizes[]", "value": "Пробники"}, {"name": "text-gift", "value": ""}, {
-      "name": "text-howknow",
-      "value": "47387487843"
-    }, {"name": "name-1", "value": "43fdfd"}, {
-      "name": "name-3",
-      "value": "Ваше отчество, можнfdfdо одну букву"
-    }, {"name": "name-2", "value": "fd"}, {"name": "text-city", "value": "dfdf"}, {
-      "name": "tel-phonecontact",
-      "value": "43434"
-    }, {"name": "text-messenger", "value": "fsfsfs"}, {"name": "acceptance-anketa", "value": "1"}]
-
-
-  var inputs2 = [{"name": "email-anketa", "value": "lianovt@gmail.com"}, {
-    "name": "age",
-    "value": "32"
-  }, {"name": "checkbox-pory[]", "value": "Расширенные"}, {
-    "name": "checkbox-sebum[]",
-    "value": "Нормальная. Кожа с нормальным выделением кожного сала. Т-зона может немного больше чем остальные зоны выделять себум."
-  }, {"name": "checkbox-sklon[]", "value": "К жирности"}, {
-    "name": "checkbox-pigments[]",
-    "value": "Работа с пигментацией не требуется."
-  }, {"name": "checkbox-kamedons[]", "value": "Бывает время от времени."}, {
-    "name": "checkbox-bariers[]",
-    "value": "Бывает редко."
-  }, {
-    "name": "checkbox-aroundeyes[]",
-    "value": "В целом хорошее состояние кожи вокруг глаз. Требуется качественное питание и увлажнение."
-  }, {
-    "name": "checkbox-firstwork[]",
-    "value": "Здоровый вид кожи, легкое сглаживание тона, «фокус-эффект» (рассеивание света с помощью минералов из дневного ухода)"
-  }, {"name": "checkbox-firstwork[]", "value": "Уход после солнца"}, {
-    "name": "checkbox-firstwork[]",
-    "value": "Очищение пор"
-  }, {"name": "checkbox-firstwork[]", "value": "Пигментированные постакне"}, {
-    "name": "checkbox-allerg[]",
-    "value": "Аллергии нет, ароматы натуральной косметики переносятся хорошо."
-  }, {"name": "textarea-osobennosti", "value": ""}, {"name": "radio-933", "value": "123"}, {
-    "name": "checkbox-fsizes[]",
-    "value": "Полноразмерные"
-  }, {"name": "checkbox-fsizes[]", "value": "Пробники"}, {"name": "text-gift", "value": ""}, {
-    "name": "text-howknow",
-    "value": "47387487843"
-  }, {"name": "name-1", "value": "43fdfd"}, {
-    "name": "name-3",
-    "value": "Ваше отчество, можнfdfdо одну букву"
-  }, {"name": "name-2", "value": "fd"}, {"name": "text-city", "value": "dfdf"}, {
-    "name": "tel-phonecontact",
-    "value": "43434"
-  }, {"name": "text-messenger", "value": "fsfsfs"}, {"name": "acceptance-anketa", "value": "1"}]
 
 
   //                                               1й прогон
@@ -801,7 +705,6 @@ document.addEventListener('wpcf7mailsent', function (event) {
     gs.forEach(function (t) {
       t.compliance.forEach(function (cat, catId) {
         cat.forEach(function (cri, criId) {
-          console.debug('CAT!', cat, catId, t)
 
           // часть функции отбора для вопросов 1го уровня
           if (catId !== 7) { // проверяем для всех категорий кроме "Над чем в первую очередь поработать" - для нее отдельная логика ниже
@@ -816,8 +719,14 @@ document.addEventListener('wpcf7mailsent', function (event) {
                 'question': answer_index[catId]['question'],
                 'answer': answer_index[catId]['answers'][criId]
               })
+            } else {
+              if (r[catId][criId] === 0 && cri > 1) {
+                t.compliance[catId][criId] = t.compliance[catId][criId].toString()
+                console.debug('CAT!', cat, catId, t, criId, r)
+              }
             }
           }
+
 
 
           // часть функции отбора для вопросов 2го уровня
@@ -843,7 +752,7 @@ document.addEventListener('wpcf7mailsent', function (event) {
 
         })
       })
-      console.debug(t)
+      // console.debug(t)
     })
     return gs;
   }
@@ -943,8 +852,8 @@ document.addEventListener('wpcf7mailsent', function (event) {
         matchBuffers[cat].forEach(function (t) {
           t.compliance.forEach(function (j) {
             var lMax = getMaxOfArray(j)
-            if (lMax === max) {
-              console.debug('COMMON_MAX_T', t)
+            if (lMax === max) { ////////////////// <<<<<<<<<<<<<<<< ошибка сравнения - дополнить условие
+              console.debug('COMMON_MAX_T', t, lMax, max)
               yesGoodsFinal.push(t.id)
               yesGoodsFullFinal.push(t)
               var newFavs = matchBuffers[cat]['favs']
