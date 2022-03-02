@@ -701,9 +701,9 @@ document.addEventListener('wpcf7mailsent', function (event) {
   }
 
   // функция первого прогона для вопросов 1го и 2го уровней - выбрасывает товары из-за несоответствия ("нули")
-  var autoCompilation = function (r, gs) {
-    gs.forEach(function (t) {
-      t.compliance.forEach(function (cat, catId) {
+  var autoCompilation = function (r, products) {
+    products.forEach(function (product,tId) {
+      product.compliance.forEach(function (cat, catId) {
         cat.forEach(function (cri, criId) {
 
           // часть функции отбора для вопросов 1го уровня
@@ -711,18 +711,19 @@ document.addEventListener('wpcf7mailsent', function (event) {
             // console.debug('NOT_FW_CRI', cri)
             // console.debug('NOT_FW_RESULT', r)
             if (cri === 0 && r[catId][criId] === 1) {
-              t['complianceResult'] = false
-              t['incomplianceCriteria'] = t['incomplianceCriteria'] || []
-              t['incomplianceCriteriaHumanReadable'] = t['incomplianceCriteriaHumanReadable'] || []
-              t['incomplianceCriteria'].push([catId, criId])
-              t['incomplianceCriteriaHumanReadable'].push({
+              product['complianceResult'] = false
+              product['incomplianceCriteria'] = product['incomplianceCriteria'] || []
+              product['incomplianceCriteriaHumanReadable'] = product['incomplianceCriteriaHumanReadable'] || []
+              product['incomplianceCriteria'].push([catId, criId])
+              product['incomplianceCriteriaHumanReadable'].push({
                 'question': answer_index[catId]['question'],
                 'answer': answer_index[catId]['answers'][criId]
               })
             } else {
               if (r[catId][criId] === 0 && cri > 1) {
-                t.compliance[catId][criId] = t.compliance[catId][criId].toString()
-                console.debug('CAT!', cat, catId, t, criId, r)
+                product.compliance[catId][criId] = product.compliance[catId][criId].toString()
+                products[tId] = product
+                console.debug('LEVEL1_QUESTION_PRODUCT_SCORE_NEUTRALIZE', cat, catId, criId, products[tId], tId, r)
               }
             }
           }
@@ -754,7 +755,7 @@ document.addEventListener('wpcf7mailsent', function (event) {
       })
       // console.debug(t)
     })
-    return gs;
+    return products;
   }
 
 
