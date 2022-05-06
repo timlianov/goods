@@ -1,0 +1,48 @@
+<script>document.addEventListener( 'wpcf7mailsent', function( event ) {
+  ga( 'send', 'event', 'Contact Form', 'submit' );
+  console.log('FORM_SUBMIT', event)
+  var inputs = event.detail.inputs;
+  console.log('INPUTS', JSON.stringify(inputs));
+}, false );</script>
+
+<label  class="h2" style="color:#c0e0c0; font-weight: bold; text-transform: none;">Расскажите о вашей коже</label>
+
+<div class="very-special-field">
+<label  style="font-size: 16px; font-weight: bold; text-transform: none;">Ваша электронная почта *</label>
+[email* email-anketa class:fio placeholder "Ваша электронная почта"]<label  style="font-size: 16px; font-weight: bold; text-transform: none;">Ваш возраст *</label>
+[text* age class:fio placeholder "Ваш возраст"]<label  style="font-size: 16px; font-weight: bold; text-transform: none;">Состояние пор *</label>
+[checkbox* checkbox-pory free_text use_label_element "Расширенные" "Локально расширенные" "Нормальные или узкие" "Другое:"]<label  style="font-size: 16px; font-weight: bold; text-transform: none;">Ваша кожа по выделению кожного сала - секреции себума *</label>
+<!--[checkbox* checkbox-sebum free_text "Очень жирная, жирная. Такая кожа выделяет много кожного сала. Жирный блеск." "Нормальная. Кожа с нормальным выделением кожного сала. Т-зона может немного больше чем остальные зоны выделять себум." "Комбинированная: в Т-зоне склонна к жирности, щеки — нормальные или склонны к сухости. Т-зона блестит." "Сухая, очень сухая. Кожа выделяет мало себума." "Другое:"]<label  style="font-size: 16px; font-weight: bold; text-transform: none;">Сейчас Ваша кожа склонна *</label>-->
+<!--[checkbox* checkbox-sklon free_text "К жирности" "К сухости" "Нормальная жирность или сухость не беспокоит"]<label  style="font-size: 16px; font-weight: bold; text-transform: none;">Нужна ли работа с&nbsp;пигментацией? *</label>-->
+[checkbox* checkbox-sebum free_text "Очень жирная, жирная. Такая кожа выделяет много кожного сала. Жирный блеск." "Нормальная. Кожа с нормальным выделением кожного сала. Т-зона может немного больше чем остальные зоны выделять себум." "Комбинированная: в Т-зоне склонна к жирности, щеки — нормальные или склонны к сухости. Т-зона блестит." "Сухая, очень сухая. Кожа выделяет мало себума." "Другое:"]<label  style="font-size: 16px; font-weight: bold; text-transform: none;">Нужна ли работа с&nbsp;пигментацией? *</label>-->
+[checkbox* checkbox-pigments free_text "Да, нужна (есть нежелательная пигментация, пигментированные постакне, следы от воспалений)." "Работа с пигментацией не требуется." "Другое:"]<label  style="font-size: 16px; font-weight: bold; text-transform: none;">Есть ли прыщи и/или&nbsp;комедоны (открытые и/или&nbsp;закрытые)? *</label>
+[checkbox* checkbox-kamedons free_text "Да, интенсивно." "Не интенсивно, но постоянно." "Бывает время от времени." "Такого нет." "Другое:"]<label  style="font-size: 16px; font-weight: bold; text-transform: none;">Для оценки барьерных свойств кожи, отметьте, бывает&nbsp;ли&nbsp;у&nbsp;Вас что-либо из&nbsp;перечисленного: стягивание кожи после умывания, шелушение, раздражение, зуд? *</label>
+[checkbox* checkbox-bariers free_text "Да, бывает часто или постоянно. Барьерные свойства кожи нуждаются в восстановлении." "Бывает редко." "Таких реакций нет." "Другое:"]<label  style="font-size: 16px; font-weight: bold; text-transform: none;">Состояние кожи вокруг глаз? *</label>
+[checkbox* checkbox-aroundeyes free_text "В целом хорошее состояние кожи вокруг глаз. Требуется качественное питание и увлажнение." "Кожа вокруг глаз нуждается в интенсивном уходе. Заметны морщинки и/или тёмные круги, пигментация.""Другое:"]<label  style="font-size: 16px; font-weight: bold; text-transform: none;">Отметьте, с чем нужно поработать в&nbsp;первую очередь <br/>(выбирайте лучше не&nbsp;более 3-х вариантов) *</label>
+[checkbox* checkbox-firstwork free_text "Полноценный уход" "Уход за кожей рук и/или тела" "Здоровый вид кожи, легкое сглаживание тона, &laquo;фокус-эффект&raquo; (рассеивание света с помощью минералов из дневного ухода)" "Питание кожи" "Увлажнение" "Уход после солнца""Покраснения кожи" "Шелушение" "Очищение пор" "Снизить выделения себума" "Акне, воспаленные прыщи" "Пигментированные постакне" "Нежелательная пигментация (пигментные пятна)" "Профилактика возрастных изменений: антиоксидантная защита" "Другое:"]<label  style="font-size: 16px; font-weight: bold; text-transform: none;">Есть ли&nbsp;аллергия или&nbsp;нежелательная реакция на&nbsp;компоненты косметики или&nbsp;непереносимость запахов? *</label>
+[checkbox* checkbox-allerg free_text "Аллергии нет, ароматы натуральной косметики переносятся хорошо." "Да, есть реакция/аллергия или непереносимость запахов, известно на какие компоненты. Укажите, пожалуйста, компоненты в пункте &laquo;Другое&raquo;." "Есть реакция/аллергия или непереносимость запахов, неизвестно на какие компоненты." "Другое:"]<label  style="font-size: 16px; font-weight: bold; text-transform: none;">Есть еще важные особенности, которые не&nbsp;указаны в&nbsp;анкете?<br/> Если&nbsp;да, опишите&nbsp;их.</label>
+[textarea textarea-osobennosti x4 id:osobennosti class:osobennosti] </div>
+
+[radio radio-933 use_label_element default:1 "123" "456" "789"]
+
+<br/>
+<label  class="h2" style="color:#c0e0c0; font-weight: bold; text-transform: none;">Расскажите о вашем заказе</label>
+<div class="very-special-field">
+<label  style="font-size: 16px; font-weight: bold; text-transform: none;">Какие средства заказываете?<br/>Если интересуют конкретные флюиды, перечислите их в пункте &laquo;Другое&raquo;. *</label>
+[checkbox* checkbox-fsizes free_text "Полноразмерные" "Полноразмерные + пробники" "Пробники" "Другое:"]<label  style="font-size: 16px; font-weight: bold; text-transform: none;">Кодовое слово, номер подарочного сертификата, если есть</label>
+[text text-gift id:gift class:gift]<label  style="font-size: 16px; font-weight: bold; text-transform: none;">Как вы нашли Angel Lab? *</label>
+[text* text-howknow id:howknow]</div>
+<br/>
+<label  class="h2" style="color:#c0e0c0; font-weight: bold; text-transform: none;">Контактные данные</label>
+<div class="very-special-field">
+<label  style="font-size: 16px; font-weight: bold; text-transform: none;">Ваше имя *</label>
+[text* name-1  class:fio placeholder "Ваше имя"]<label  style="font-size: 16px; font-weight: bold; text-transform: none;">Ваше отчество * </label>
+[text* name-3 class:fio "Ваше отчество, можно одну букву"]<label  style="font-size: 16px; font-weight: bold; text-transform: none;">Ваша фамилия *</label>
+[text* name-2 class:fio placeholder "Ваша фамилия"]<label  style="font-size: 16px; font-weight: bold; text-transform: none;">Город доставки *</label>
+[text* text-city id:city]<label  style="font-size: 16px; font-weight: bold; text-transform: none;">Номер телефона *</label>
+[tel* tel-phonecontact class:fio placeholder "(пример +79999999999 - без пробелов и черточек)"]<label  style="font-size: 16px; font-weight: bold; text-transform: none;">Дополнительный контакт *</label>
+[text* text-messenger placeholder "(Инстаграм, WhatsApp) на случай, если наше письмо попадет в спам"]</div>
+<br/>
+[acceptance acceptance-anketa] Ваше согласие с <a href="https://angellab.pro/privacy-policy#privacy-policy" target="_blank">условиями обработки персональных данных</a> [/acceptance]
+[recaptcha size:compact]
+[submit  class:wpcf7-submit "Отправить анкету"]
